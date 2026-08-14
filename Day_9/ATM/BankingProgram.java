@@ -3,13 +3,14 @@ import java.util.Scanner;
 
 import static ATM.BankingService.*;
 
-public class BankingProgram {
+public class
+BankingProgram {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
 
         int choice = 0;
-        while(choice != 8)
+        while(choice != 9)
         {
             System.out.println("➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖");
             System.out.println("▫️                             ▫️");
@@ -23,14 +24,15 @@ public class BankingProgram {
             System.out.println("▫️5. Withdraw Money            ▫️️");
             System.out.println("▫️6. Check Balance             ▫️️");
             System.out.println("▫️7. Show Transactions         ▫️️");
-            System.out.println("▫️8. Exit                      ▫️️");
+            System.out.println("▫️8. Delete Account            ▫️️");
+            System.out.println("▫️9. Exit                      ▫️️");
             System.out.println("➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖");
             System.out.print("Enter your choice : ");
             choice = scanner.nextInt();
 
             System.out.println("➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖");
 
-            if (choice > 9 || choice < 0)
+            if (choice > 10 || choice < 0)
             {
                 System.out.println("Invalid Choice!");
             }
@@ -59,8 +61,12 @@ public class BankingProgram {
                     break;
                 case 7:
                     ShowTransactions();
+                    TransactionFile();
                     break;
                 case 8:
+                    DeleteAccount();
+                    break;
+                case 9:
                     System.out.println("Thank you😊");
                     break;
 

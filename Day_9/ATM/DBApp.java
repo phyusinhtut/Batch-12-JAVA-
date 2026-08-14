@@ -49,6 +49,31 @@ public class DBApp {
         }
     }
 
+    public Account deleteAccount(String userName)
+    {
+        String sql = "DELETE FROM account WHERE user_name = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, userName);
+
+            int rowsAffected = pstmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println(userName + " Account Deleted Successfully!");
+
+            } else {
+                System.out.println("❌ User not found: " + userName);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Database Error: " + e.getMessage());
+        }
+
+        return null;
+    }
+
     public Account getAccountByUserName(String userName)
     {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD))
