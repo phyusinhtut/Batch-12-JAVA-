@@ -24,7 +24,7 @@ class AtmApplicationTests {
 
     @Test
     void createAccount() {
-        System.out.println(accountService.createAccount("John", "John@22", "john@gmail.com"));
+        System.out.println(accountService.createAccount("John", "John@22", "john@gmail.com","Yangon"));
     }
 
     @Test

@@ -12,12 +12,11 @@ import java.time.LocalDateTime;
 public class AccountServices {
     private final AccountRepository accountRepository;
 
-
-
-    public Account createAccount(String userName, String password, String email) {
+    public Account createAccount(String userName, String password, String email, String address) {
         userName = userName.trim();
         password = password.trim();
         email = email.trim();
+        String trimmedAddress = (address == null) ? "" : address.trim();
 
         if (!userName.matches("[a-zA-Z]+")) {
             System.out.println("Username must contain only letters (A-Z, a-z). No numbers allowed.");
@@ -34,11 +33,16 @@ public class AccountServices {
         if (email.isEmpty()) {
             System.out.println("Email cannot be empty.");
         }
+        if(address.isEmpty())
+        {
+            System.out.println("Address cannot be empty");
+        }
 
         Account account = new Account();
         account.setUsername(userName);
         account.setPassword(password);
         account.setEmail(email);
+        account.setAddress(address);
         return accountRepository.save(account);
 
     }

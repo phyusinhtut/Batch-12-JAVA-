@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h3 style="text-align:center">Your Transactions</h3>
+<!--    <tr th:each="transaction : ${transactions}">-->
+<!--        <td th:text="${transaction.transactionId}"></td>-->
+<!--        <td th:text="${transaction.transactionType}"></td>-->
+<!--        <td th:text="${transaction.amount}"></td>-->
+<!--        <td th:text="${transaction.accountId}"></td>-->
+<!--    </tr>-->
+    <table class="table table-success table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Transaction ID</th>
+            <th scope="col">Transaction Type</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Account ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="transaction : ${transactions}">
+            <th scope="row" th:text="${transaction.transactionId}"></th>
+            <td th:text="${transaction.transactionType}"></td>
+            <td th:text="${transaction.amount}"></td>
+            <td th:text="${transaction.accountId}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/}" class="btn btn-primary" tabindex="-1" role="button">Home</a>
+    <a th:href="@{/dashboard}" class="btn btn-secondary" tabindex="-1" role="button">Dashboard</a>
+</div>
+</body>
+</html>
